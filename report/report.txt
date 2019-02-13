@@ -1,0 +1,76 @@
+Dataset Description: 
+
+  Data size: 891
+  
+  Attributes size: 12
+  
+  Attributes: 
+  
+•	Passenger ID: ID for every passenger.
+
+•	Survived: Label for the survival (0 for not survival, and 1 for survived).
+
+•	Pclass: The cabin class for every passenger, which is important for whether a passenger could survive eventually due to the safety facilities in different class.
+
+•	Name: The name of every passenger.
+
+•	Sex: Gender for every passenger, in our data describe, we had seen that the survival rate of females is higher than that of males. So it is an important attribute.
+
+•	Age: Passenger’s age.
+
+•	SibSp: Number of brothers and sisters for every passenger,
+
+•	Parch: Number of parents and children for every passenger,
+
+•	Ticket: ID of every ticket.
+
+•	Fare: Price of tickets for every passenger.
+
+•	Cabin: ID for different cabin.
+
+•	Embarked: Port where a passenger boarded.
+
+Data Preprocess: 
+
+  Because the sklearn can only address number, we need to transfer the string-type values of every attribute to number-type like integer, float and so on.
+  
+  For the passenger ID attribute, it is just a index of data, so we did not care about it for training.
+  
+  For the name attribute, we thought it was a bit tricky to correlate it to the survival rate.
+  
+  For the sex attribute, it only has “male” and “female”, which we can treat it as a Boolean value. So we transfer “male” into “0”, while we transfer “female” into “1”.
+  
+  For the age attribute, there are only 714 values which means this attribute had N/A values. Because the number of N/A is not so large, we cannot treat it as noise. Then we choose to refill the N/A values by the median of the other 714 values.
+  
+  For the ticket attribute, we also thought it was a bit tricky to correlate it to the survival rate.
+  
+  For the cabin attribute, it has lots of N/A value, so we treat it as noise and remove this from our training.
+  
+  For the Embarked attribute, it has 3 string values “S”, “C” and “Q”, but it has some N/A values. So by describing the data we found that the count of “S” is largest, and then we use “S” to refill the N/A values. After that we transfer “S”, “C”, “Q” into “0”, “1”, “2”.
+  
+  After finishing data preprocess, we refined the data to 1 label and 7 attributes. (“Survived” as label, while “Pclass”, “Sex”, “Age”, “SibSp”, “Parch”, “Fare” and “Embarked” as attributes.)
+
+Model Selection: 
+
+We have choose 10 models shown as follows to train the dataset.
+
+Decision Tree
+
+Deep Learning
+
+SVM
+
+Naïve Bayes
+
+Logistic Regression
+
+k-NN
+
+Bagging
+
+Random Forest
+
+AdaBoost
+
+Gradient Boosting
+
